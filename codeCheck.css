@@ -1,0 +1,225 @@
+
+/* Colors and background colors inspired by ChatGPT 
+ * Flex layout inspired by ChatGPT
+ * https://chat.openai.com 
+ */
+body{
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+#fontSettingHeader{
+    font-size: 28px;
+    text-align: center;
+    padding: 12px 0;
+    margin: 0px;
+    margin-top: 20px;
+    background-color: #252526;
+    border-bottom: 1px solid #444;
+}
+
+/* Display Flex:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts
+ * Order:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items
+ * Overflow/Carousels:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Overflow/Carousels
+ */
+#mainLayout{
+    display: flex;
+    height: calc(100vh - 52px);
+}
+
+/* Left container (code box and line by line) */
+#leftContainer{
+    width: 40%;
+    background-color: #252526;
+    border-right: 1px solid #444;
+    order: 1;
+}
+
+#leftScroll{
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+/* Middle Right (Testcases) */
+#middleContainer{
+    width: 17.5%;
+    background-color: #252526;
+    border-right: 1px solid #444;
+    order: 3;
+}
+
+/* Right side (Saved Testcases) */
+#rightContainer{
+    width: 17.5%;
+    background-color: #252526;
+    border-right: 1px solid #444;
+    order: 4;
+}
+
+
+/* Middle Left (Controls) */
+#controlContainer{
+    width: 25%;
+    background-color: #252526;
+    padding: 10px;
+    padding-bottom: 220px;
+    overflow-y: auto;
+    order: 2;
+}
+
+.scrollBox{
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+#functionHeader{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#fontSetting{
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+#fontSetting2{
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#fontSetting3{
+    font-size: 14px;
+}
+
+#fontSetting4{
+    font-size: 14px;
+}
+
+#codeBox{
+    width: 100%;
+    height: 280px;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    border: 1px solid #555;
+    resize: none;
+}
+
+input{
+    font-size: 14px;
+    padding: 4px;
+    margin: 4px;
+    width: 70px;
+    background-color: #3c3c3c;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* specific sizing */
+#output{
+	width: 80px;
+}
+#numParam{
+	width: 60px;
+}
+#lineDelete{
+	width: 60px;
+}
+
+button{
+    background-color: #0e639c;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Button hover and button colors inspired by ChatGPT
+ * https://chat.openai.com */
+ */
+
+button:hover{
+    background-color: #1177bb;
+}
+
+#debuggerTitle{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#debugField{
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#testcaseContainer{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#savedTestcases{
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+#var2, #var3, #var4{
+    display: none;
+}
+
+#input2, #input3, #input4{
+    display: none;
+}
+
+#input2Toggle, #input3Toggle, #input4Toggle{
+    display: none;
+}
+
+#notificationBox{
+    width: 100%;
+    height: 140px;
+    background: #2d2d30;
+    border-top: 1px solid #555;
+    border-left: 1px solid #555;
+
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* word-wrap and breaking text:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Text/Wrapping_breaking_text
+ * overflow-wrap:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow-wrap
+ */
+
+.notifContainer{
+    flex: 1;
+    overflow-y: auto;
+
+    font-size: 14px;
+
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* hide buttons initially */
+#notificationBox button{
+    display: none;
+}

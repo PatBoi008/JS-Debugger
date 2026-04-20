@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Javascript Testcase Checker</title>
+		<link rel="stylesheet" href="codeCheck.css">
+	</head>
+
+	<body>
+
+		<h1 id="fontSettingHeader">JS Code Debugger</h1>
+
+		<div id="mainLayout">
+
+			<div id="leftContainer">
+				<div id="leftScroll">
+
+					<p id="functionHeader">
+						Paste your code here:<br>
+						function proc(a){
+					</p>
+
+					<textarea id="codeBox">Type your code here.</textarea>
+
+					<p id="fontSetting">
+						}
+					</p>
+
+					<div id="debugContainer">
+						<p id="debuggerTitle">
+							Line by line debugger
+						</p>
+
+						<p>
+							Choose a testcase to debug:
+						</p>
+
+						<input id="debugTestcase" type="number" value="1">
+						<button onclick="startAcorn()">Load testcase</button>
+
+						<br><br>
+
+						<input id="debugLine" type="number" value="0">
+						<button onclick="updateDebugDisplay()">Update Line</button>
+
+						<p id="debugField">Debug variables will show here</p>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="middleContainer">
+				<div class="scrollBox">
+
+					<p id="testcaseContainer">
+						Testcases:<br>
+						Input => Expected output, Your output<br>
+					</p>
+					<br><br><br>
+					<div>
+						<p> Save above testcases to your local storage! 
+							You can use a new name to make a new testing data storage,
+							or append/override an already existing dataset.
+							The parameter data (amount, names, datatypes)
+							must match if you are appending or overriding
+							to a dataset.
+							<br>
+							You can load datasets or delete them as you wish on your
+							local storage.
+						</p>
+						<p>Save / Append / Override:</p>
+						<input id="datasetName" type="text">
+						<br>
+						<button onclick="updateDatasetNormal()">Save/Append</button>
+						<button onclick="updateDatasetOverride()">Override</button>
+					</div>
+
+					<div id="datasetLoaderContainer">
+						<p>Load / Delete dataset:</p>
+						<input id="loadDatasetName" type="text">
+						<br>
+						<button onclick="loadDataset()">Load</button>
+						<button onclick="deleteDataset()">Delete</button>
+						<p>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+						</p>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="rightContainer">
+				<div class="scrollBox">
+					<p id="savedTestcases">
+						Saved testcases list (Load to see content):
+					</p>
+					
+					<p>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+					</p>
+				</div>
+			</div>
+
+			<div id="controlContainer">
+
+				<p id="fontSetting2"> Enter Parameter Amount </p>
+				<input id="numParam" type="number" min="1" max="4" value="1">
+				<button onclick="updateVars()">Update</button>
+
+				<p id="fontSetting2"> Enter Parameter Names:</p>
+				<input id="var1" type="text" value="a">
+				<input id="var2" type="text" value="b">
+				<input id="var3" type="text" value="c">
+				<input id="var4" type="text" value="d">
+
+				<button onclick="updateVars()">Update</button>
+
+				<p id="fontSetting2">
+					Enter Function Parameter(s) Datatypes:<br>
+					"string", "array", "number", "boolean", "object"
+				</p>
+
+				<input id="input1Toggle" type="text" value="string">
+				<input id="input2Toggle" type="text" value="string">
+				<input id="input3Toggle" type="text" value="string">
+				<input id="input4Toggle" type="text" value="string">
+
+				<button onclick="updateDatatype()">Update datatypes</button>
+
+				<p id="fontSetting2"> Enter testcase (input/output):</p>
+
+				<input id="input1" type="text">
+				<input id="input2" type="text">
+				<input id="input3" type="text">
+				<input id="input4" type="text">
+
+				<br>
+
+				<input id="output" type="text" placeholder="Output">
+
+				<button onclick="updateTestcaseAdd()">Add Testcase</button>
+
+				<p> Delete Testcase (on line X):</p>
+				<input id="lineDelete" type="number" min="1">
+				<button onclick="updateTestcaseDelete()">Delete Testcase</button>
+
+				<br><br>
+
+				<button id="checkButton" onclick="checkCode()">
+					Check your code!
+				</button>
+				<div id="notificationBox">
+					<p class="notifContainer">
+						Notifications: None
+						
+					</p>
+
+					<button class="confirmUpdate" onclick="confirmUpdate()">Update Params</button>
+					<button class="loadUpdate" onclick="confirmUpdateLoad()">Load Testing Data</button>
+					<button class="DTUpdate" onclick="confirmUpdateDT()">Update Datatypes</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- Acorn script and methods sourced from:
+			https://github.com/acornjs/acorn !-->
+		<script src="https://unpkg.com/acorn@8.10.0/dist/acorn.js"></script>
+		<script src="codeCheck.js"></script>
+	</body>
+</html>
